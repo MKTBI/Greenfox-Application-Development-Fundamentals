@@ -11,3 +11,35 @@ post3 = BlogPost("William Turton", "One Engineer Is Trying to Get IBM to Reckon 
 
 print(post1.title)
 print(post3.publicationDate)
+
+class Blog:
+    def __init__(self):
+        self.listOfPosts = []
+        
+    def add(self, post):
+        self.listOfPosts.append(post)
+        
+    def delete(self, index):
+        self.listOfPosts.pop(index)
+        
+    def update(self, index, post):
+        self.listOfPosts[index] = post
+    
+
+blog = Blog()
+
+blog.add(post1)
+blog.add(post2)
+blog.add(post3)
+
+blog.delete(1)
+
+new_post = BlogPost("Jane Smith", "The power of mindfulness", "Learn how to live in the present moment.", "2022.01.01.")
+blog.update(0, new_post)
+
+for post in blog.listOfPosts:
+    print("Title: " + post.title)
+    print("Author: " + post.authorName)
+    print("Publication Date: " + post.publicationDate)
+    print("Text: " + post.text)
+    print("\n")
